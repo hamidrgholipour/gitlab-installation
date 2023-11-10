@@ -2,5 +2,6 @@
 docker exec -it <gitlab-container-name> grep 'Password:' /etc/gitlab/initial_root_password
 #register a runner
 docker run --rm -it -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register
+docker run --rm -it -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register -n --url "https://gitlab.com/" --registration-token REGISTRATION_TOKEN  --executor shell --description "My Runner"
 #if get error host not resolve add below to config.tol
 network_mode = "host"
